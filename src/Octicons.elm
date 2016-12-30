@@ -1,5 +1,364 @@
 module Octicons exposing (..)
 
+{-| This library provides functions to generate Octicons Icons
+
+@doc IconOptions
+
+@doc icon, size, style, margin, color, width, height, fillRule, viewBox
+
+@doc defaultAlert, alertOptions, alertIcon
+
+@doc defaultArrowdown, arrowDownOptions, arrowDownIcon
+
+@doc defaultArrowleft, arrowLeftOptions, arrowLeftIcon
+
+@doc defaultArrowright, arrowRightOptions, arrowRightIcon
+
+@doc defaultArrowsmalldown, arrowSmallDownOptions, arrowSmallDownIcon
+
+@doc defaultArrowsmallleft, arrowSmallLeftOptions, arrowSmallLeftIcon
+
+@doc defaultArrowsmallright, arrowSmallRightOptions, arrowSmallRightIcon
+
+@doc defaultArrowsmallup, arrowSmallUpOptions, arrowSmallUpIcon
+
+@doc defaultArrowup, arrowUpOptions, arrowUpIcon
+
+@doc defaultBeaker, beakerOptions, beakerIcon
+
+@doc defaultBell, bellOptions, bellIcon
+
+@doc defaultBold, boldOptions, boldIcon
+
+@doc defaultBook, bookOptions, bookIcon
+
+@doc defaultBookmark, bookmarkOptions, bookmarkIcon
+
+@doc defaultBriefcase, briefcaseOptions, briefcaseIcon
+
+@doc defaultBroadcast, broadcastOptions, broadcastIcon
+
+@doc defaultBrowser, browserOptions, browserIcon
+
+@doc defaultBug, bugOptions, bugIcon
+
+@doc defaultCalendar, calendarOptions, calendarIcon
+
+@doc defaultCheck, checkOptions, checkIcon
+
+@doc defaultChecklist, checklistOptions, checklistIcon
+
+@doc defaultChevrondown, chevronDownOptions, chevronDownIcon
+
+@doc defaultChevronleft, chevronLeftOptions, chevronLeftIcon
+
+@doc defaultChevronright, chevronRightOptions, chevronRightIcon
+
+@doc defaultChevronup, chevronUpOptions, chevronUpIcon
+
+@doc defaultCircleslash, circleSlashOptions, circleSlashIcon
+
+@doc defaultCircuitboard, circuitBoardOptions, circuitBoardIcon
+
+@doc defaultClippy, clippyOptions, clippyIcon
+
+@doc defaultClock, clockOptions, clockIcon
+
+@doc defaultClouddownload, cloudDownloadOptions, cloudDownloadIcon
+
+@doc defaultCloudupload, cloudUploadOptions, cloudUploadIcon
+
+@doc defaultCode, codeOptions, codeIcon
+
+@doc defaultCommentdiscussion, commentDiscussionOptions, commentDiscussionIcon
+
+@doc defaultComment, commentOptions, commentIcon
+
+@doc defaultCreditcard, creditCardOptions, creditCardIcon
+
+@doc defaultDash, dashOptions, dashIcon
+
+@doc defaultDashboard, dashboardOptions, dashboardIcon
+
+@doc defaultDatabase, databaseOptions, databaseIcon
+
+@doc defaultDesktopdownload, desktopDownloadOptions, desktopDownloadIcon
+
+@doc defaultDevicecameravideo, deviceCameraVideoOptions, deviceCameraVideoIcon
+
+@doc defaultDevicecamera, deviceCameraOptions, deviceCameraIcon
+
+@doc defaultDevicedesktop, deviceDesktopOptions, deviceDesktopIcon
+
+@doc defaultDevicemobile, deviceMobileOptions, deviceMobileIcon
+
+@doc defaultDiffadded, diffAddedOptions, diffAddedIcon
+
+@doc defaultDiffignored, diffIgnoredOptions, diffIgnoredIcon
+
+@doc defaultDiffmodified, diffModifiedOptions, diffModifiedIcon
+
+@doc defaultDiffremoved, diffRemovedOptions, diffRemovedIcon
+
+@doc defaultDiffrenamed, diffRenamedOptions, diffRenamedIcon
+
+@doc defaultDiff, diffOptions, diffIcon
+
+@doc defaultEllipses, ellipsesOptions, ellipsesIcon
+
+@doc defaultEllipsis, ellipsisOptions, ellipsisIcon
+
+@doc defaultEye, eyeOptions, eyeIcon
+
+@doc defaultFilebinary, fileBinaryOptions, fileBinaryIcon
+
+@doc defaultFilecode, fileCodeOptions, fileCodeIcon
+
+@doc defaultFiledirectory, fileDirectoryOptions, fileDirectoryIcon
+
+@doc defaultFilemedia, fileMediaOptions, fileMediaIcon
+
+@doc defaultFilepdf, filePdfOptions, filePdfIcon
+
+@doc defaultFilesubmodule, fileSubmoduleOptions, fileSubmoduleIcon
+
+@doc defaultFilesymlinkdirectory, fileSymlinkDirectoryOptions, fileSymlinkDirectoryIcon
+
+@doc defaultFilesymlinkfile, fileSymlinkFileOptions, fileSymlinkFileIcon
+
+@doc defaultFiletext, fileTextOptions, fileTextIcon
+
+@doc defaultFilezip, fileZipOptions, fileZipIcon
+
+@doc defaultFile, fileOptions, fileIcon
+
+@doc defaultFlame, flameOptions, flameIcon
+
+@doc defaultFold, foldOptions, foldIcon
+
+@doc defaultGear, gearOptions, gearIcon
+
+@doc defaultGift, giftOptions, giftIcon
+
+@doc defaultGistsecret, gistSecretOptions, gistSecretIcon
+
+@doc defaultGist, gistOptions, gistIcon
+
+@doc defaultGitbranch, gitBranchOptions, gitBranchIcon
+
+@doc defaultGitcommit, gitCommitOptions, gitCommitIcon
+
+@doc defaultGitcompare, gitCompareOptions, gitCompareIcon
+
+@doc defaultGitmerge, gitMergeOptions, gitMergeIcon
+
+@doc defaultGitpullrequest, gitPullRequestOptions, gitPullRequestIcon
+
+@doc defaultGlobe, globeOptions, globeIcon
+
+@doc defaultGrabber, grabberOptions, grabberIcon
+
+@doc defaultGraph, graphOptions, graphIcon
+
+@doc defaultHeart, heartOptions, heartIcon
+
+@doc defaultHistory, historyOptions, historyIcon
+
+@doc defaultHome, homeOptions, homeIcon
+
+@doc defaultHorizontalrule, horizontalRuleOptions, horizontalRuleIcon
+
+@doc defaultHubot, hubotOptions, hubotIcon
+
+@doc defaultInbox, inboxOptions, inboxIcon
+
+@doc defaultInfo, infoOptions, infoIcon
+
+@doc defaultIssueclosed, issueClosedOptions, issueClosedIcon
+
+@doc defaultIssueopened, issueOpenedOptions, issueOpenedIcon
+
+@doc defaultIssuereopened, issueReopenedOptions, issueReopenedIcon
+
+@doc defaultItalic, italicOptions, italicIcon
+
+@doc defaultJersey, jerseyOptions, jerseyIcon
+
+@doc defaultKey, keyOptions, keyIcon
+
+@doc defaultKeyboard, keyboardOptions, keyboardIcon
+
+@doc defaultLaw, lawOptions, lawIcon
+
+@doc defaultLightbulb, lightBulbOptions, lightBulbIcon
+
+@doc defaultLinkexternal, linkExternalOptions, linkExternalIcon
+
+@doc defaultLink, linkOptions, linkIcon
+
+@doc defaultListordered, listOrderedOptions, listOrderedIcon
+
+@doc defaultListunordered, listUnorderedOptions, listUnorderedIcon
+
+@doc defaultLocation, locationOptions, locationIcon
+
+@doc defaultLock, lockOptions, lockIcon
+
+@doc defaultLogogist, logoGistOptions, logoGistIcon
+
+@doc defaultLogogithub, logoGithubOptions, logoGithubIcon
+
+@doc defaultMailread, mailReadOptions, mailReadIcon
+
+@doc defaultMailreply, mailReplyOptions, mailReplyIcon
+
+@doc defaultMail, mailOptions, mailIcon
+
+@doc defaultMarkgithub, markGithubOptions, markGithubIcon
+
+@doc defaultMarkdown, markdownOptions, markdownIcon
+
+@doc defaultMegaphone, megaphoneOptions, megaphoneIcon
+
+@doc defaultMention, mentionOptions, mentionIcon
+
+@doc defaultMilestone, milestoneOptions, milestoneIcon
+
+@doc defaultMirror, mirrorOptions, mirrorIcon
+
+@doc defaultMortarboard, mortarBoardOptions, mortarBoardIcon
+
+@doc defaultMute, muteOptions, muteIcon
+
+@doc defaultNonewline, noNewlineOptions, noNewlineIcon
+
+@doc defaultNote, noteOptions, noteIcon
+
+@doc defaultOctoface, octofaceOptions, octofaceIcon
+
+@doc defaultOrganization, organizationOptions, organizationIcon
+
+@doc defaultPackage, packageOptions, packageIcon
+
+@doc defaultPaintcan, paintcanOptions, paintcanIcon
+
+@doc defaultPencil, pencilOptions, pencilIcon
+
+@doc defaultPerson, personOptions, personIcon
+
+@doc defaultPin, pinOptions, pinIcon
+
+@doc defaultPlug, plugOptions, plugIcon
+
+@doc defaultPlussmall, plusSmallOptions, plusSmallIcon
+
+@doc defaultPlus, plusOptions, plusIcon
+
+@doc defaultPrimitivedot, primitiveDotOptions, primitiveDotIcon
+
+@doc defaultPrimitivesquare, primitiveSquareOptions, primitiveSquareIcon
+
+@doc defaultProject, projectOptions, projectIcon
+
+@doc defaultPulse, pulseOptions, pulseIcon
+
+@doc defaultQuestion, questionOptions, questionIcon
+
+@doc defaultQuote, quoteOptions, quoteIcon
+
+@doc defaultRadiotower, radioTowerOptions, radioTowerIcon
+
+@doc defaultReply, replyOptions, replyIcon
+
+@doc defaultRepoclone, repoCloneOptions, repoCloneIcon
+
+@doc defaultRepoforcepush, repoForcePushOptions, repoForcePushIcon
+
+@doc defaultRepoforked, repoForkedOptions, repoForkedIcon
+
+@doc defaultRepopull, repoPullOptions, repoPullIcon
+
+@doc defaultRepopush, repoPushOptions, repoPushIcon
+
+@doc defaultRepo, repoOptions, repoIcon
+
+@doc defaultRocket, rocketOptions, rocketIcon
+
+@doc defaultRss, rssOptions, rssIcon
+
+@doc defaultRuby, rubyOptions, rubyIcon
+
+@doc defaultScreenfull, screenFullOptions, screenFullIcon
+
+@doc defaultScreennormal, screenNormalOptions, screenNormalIcon
+
+@doc defaultSearch, searchOptions, searchIcon
+
+@doc defaultServer, serverOptions, serverIcon
+
+@doc defaultSettings, settingsOptions, settingsIcon
+
+@doc defaultShield, shieldOptions, shieldIcon
+
+@doc defaultSignin, signInOptions, signInIcon
+
+@doc defaultSignout, signOutOptions, signOutIcon
+
+@doc defaultSmiley, smileyOptions, smileyIcon
+
+@doc defaultSquirrel, squirrelOptions, squirrelIcon
+
+@doc defaultStar, starOptions, starIcon
+
+@doc defaultStop, stopOptions, stopIcon
+
+@doc defaultSync, syncOptions, syncIcon
+
+@doc defaultTag, tagOptions, tagIcon
+
+@doc defaultTasklist, tasklistOptions, tasklistIcon
+
+@doc defaultTelescope, telescopeOptions, telescopeIcon
+
+@doc defaultTerminal, terminalOptions, terminalIcon
+
+@doc defaultTextsize, textSizeOptions, textSizeIcon
+
+@doc defaultThreebars, threeBarsOptions, threeBarsIcon
+
+@doc defaultThumbsdown, thumbsdownOptions, thumbsdownIcon
+
+@doc defaultThumbsup, thumbsupOptions, thumbsupIcon
+
+@doc defaultTools, toolsOptions, toolsIcon
+
+@doc defaultTrashcan, trashcanOptions, trashcanIcon
+
+@doc defaultTriangledown, triangleDownOptions, triangleDownIcon
+
+@doc defaultTriangleleft, triangleLeftOptions, triangleLeftIcon
+
+@doc defaultTriangleright, triangleRightOptions, triangleRightIcon
+
+@doc defaultTriangleup, triangleUpOptions, triangleUpIcon
+
+@doc defaultUnfold, unfoldOptions, unfoldIcon
+
+@doc defaultUnmute, unmuteOptions, unmuteIcon
+
+@doc defaultUnverified, unverifiedOptions, unverifiedIcon
+
+@doc defaultVerified, verifiedOptions, verifiedIcon
+
+@doc defaultVersions, versionsOptions, versionsIcon
+
+@doc defaultWatch, watchOptions, watchIcon
+
+@doc defaultX, xOptions, xIcon
+
+@doc defaultZap, zapOptions, zapIcon
+-}
+
 import Html
 import Octicons.Internal exposing (..)
 
