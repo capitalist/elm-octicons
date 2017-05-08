@@ -5,10 +5,10 @@ This library provides octicon generation for your Elm applications. Because octi
 ## Basic Usage
 The below will give you a black icon in the default size for the Octicon. This is usually around 16px, but varies from one icon to the next.
 ```elm
-import Octicons exposing (defaultAlert)
+import Octicons exposing (defaultOptions)
 
 view =
-    defaultAlert
+    Octicons.alert defaultOptions
 ```
 
 ## Usage with Options
@@ -17,22 +17,23 @@ This code will give you a white, 20px alert icon.
 import Octicons exposing (color, size, icon, alertOptions)
 
 view =
-    alertOptions |> color "white" |> size "20" |> icon
+    defaultOptions |> color "white" |> size "20" |> Octicons.alert
 ```
 
 Because the options are just functions, you can compose them and use that to style your icons. For example:
 ```elm
-import Octicons exposing (alertOptions, arrowDownOptions)
+import Html exposing (Html)
+import Octicons exposing (alert, arrowDown, defaultOptions)
 
 view =
     div []
-    [ homepageIcon alertOptions
-    , homepageIcon arrowDownOptions
+    [ homepageIcon alert
+    , homepageIcon arrowDown
     ]
 
-homepageIcon : Octicons.IconOptions -> Html.Html msg
-homepageIcon options =
-    options |> Octicons.color "white" |> Octicons.size "20" |> Octicons.margin "0 4px" |> icon
+homepageIcon : (Octicons.Options -> Html msg) -> Html msg
+homepageIcon icon =
+    defaultOptions |> Octicons.color "white" |> Octicons.size "20" |> Octicons.margin "0 4px" |> icon
 ```
 
 ## Naming
