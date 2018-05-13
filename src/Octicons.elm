@@ -1,7 +1,7 @@
 module Octicons exposing (..)
 {-| @docs
 # Configuration
-@docs size, style, width, height, fillRule, margin, color
+@docs size, style, width, height, fillRule, margin, color, class
 
 # Icons Helpers
 @docs alert, arrowDown, arrowLeft, arrowRight,arrowSmallDown
@@ -116,7 +116,7 @@ polygonIconWithOptions points viewBox octiconName options =
 -}
 defaultOptions : Options
 defaultOptions =
-    { color = "black", width = 16, height = 16, fillRule = "evenodd", margin = Nothing, style = Nothing }
+    { color = "black", class = Nothing, width = 16, height = 16, fillRule = "evenodd", margin = Nothing, style = Nothing }
 
 
 {-|
@@ -143,9 +143,14 @@ margin margin options =
 {-|
 -}
 color : String -> Options -> Options
-color color options =
-    { options | color = color }
+color value options =
+    { options | color = value }
 
+{-|
+-}
+class : String -> Options -> Options
+class value options =
+    { options | class = Just value }
 
 {-|
 -}

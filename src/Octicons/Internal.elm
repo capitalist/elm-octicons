@@ -7,6 +7,7 @@ import Svg.Attributes
 
 type alias Options =
     { color : String
+    , class : Maybe String
     , width : Int
     , height : Int
     , fillRule : String
@@ -45,7 +46,7 @@ iconSVG viewBox name options attributes children =
         Svg.svg
             (List.concat
                 [ [ Svg.Attributes.version "1.1"
-                  , Svg.Attributes.class ("octicon " ++ name)
+                  , Svg.Attributes.class (Maybe.withDefault ("octicon " ++ name) options.class)
                   , Svg.Attributes.width <| toString options.width
                   , Svg.Attributes.height <| toString options.height
                   , Svg.Attributes.viewBox viewBox
