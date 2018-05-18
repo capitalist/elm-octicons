@@ -54,6 +54,7 @@ body {
 """         ]
         , ul [ class "icon-list" ]
             [ li [] [ a [] [ Octicons.alert { defaultOptions | width = 32, height = 32 } ] ]
+            , li [] [ a [] [ Octicons.archive { defaultOptions | width = 28, height = 32 } ] ]
             , li [] [ a [] [ Octicons.arrowDown { defaultOptions | width = 20, height = 32 } ] ]
             , li [] [ a [] [ Octicons.arrowLeft { defaultOptions | width = 20, height = 32 } ] ]
             , li [] [ a [] [ Octicons.arrowRight { defaultOptions | width = 20, height = 32 } ] ]

@@ -4,7 +4,7 @@ module Octicons exposing (..)
 @docs size, style, width, height, fillRule, margin, color, class
 
 # Icons Helpers
-@docs alert, arrowDown, arrowLeft, arrowRight,arrowSmallDown
+@docs alert, archive, arrowDown, arrowLeft, arrowRight,arrowSmallDown
 @docs arrowSmallLeft, arrowSmallRight
 @docs arrowSmallUp, arrowUp, beaker, bell, bold
 @docs book, bookmark, briefcase, broadcast, browser, bug, calendar
@@ -41,7 +41,7 @@ module Octicons exposing (..)
 @docs pathIconWithOptions, polygonIconWithOptions, Options, defaultOptions
 
 # Svg Data
-@docs alertPath, arrowDownPolygon, arrowLeftPolygon, arrowRightPolygon, arrowSmallDownPolygon
+@docs alertPath, archivePath, arrowDownPolygon, arrowLeftPolygon, arrowRightPolygon, arrowSmallDownPolygon
 @docs arrowSmallLeftPolygon, arrowSmallRightPolygon, arrowSmallUpPolygon, arrowUpPolygon
 @docs beakerPath, bellPath, boldPath, bookPath, bookmarkPath, briefcasePath, broadcastPath
 @docs browserPath, bugPath, calendarPath, checkPolygon, checklistPath, chevronDownPolygon
@@ -185,6 +185,20 @@ alert =
 alertPath : String
 alertPath =
     "M8.865,1.51999998 C8.685,1.20999998 8.355,1.01999998 7.995,1.01999998 C7.635,1.01999998 7.305,1.20999998 7.125,1.51999998 L0.275000001,13.5 C0.0950000006,13.81 0.0950000006,14.19 0.275000001,14.5 C0.465000001,14.81 0.795000001,15 1.145,15 L14.845,15 C15.205,15 15.535,14.81 15.705,14.5 C15.875,14.19 15.885,13.81 15.715,13.5 L8.865,1.51999998 Z M8.995,13 L6.995,13 L6.995,11 L8.995,11 L8.995,13 L8.995,13 Z M8.995,9.99999998 L6.995,9.99999998 L6.995,5.99999998 L8.995,5.99999998 L8.995,9.99999998 L8.995,9.99999998 Z"
+
+
+{-|
+-}
+archive : Options -> Html msg
+archive =
+    pathIconWithOptions archivePath "0 0 14 16" "archive"
+
+
+{-|
+-}
+archivePath : String
+archivePath =
+    "M13 2H1v2h12V2zM0 4a1 1 0 0 0 1 1v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v2zm2 1h10v9H2V5zm2 3h6V7H4v1z"
 
 
 {-|
