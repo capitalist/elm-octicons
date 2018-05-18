@@ -41,7 +41,7 @@ module Octicons exposing (..)
 @docs pathIconWithOptions, polygonIconWithOptions, Options, defaultOptions
 
 # Svg Data
-@docs alertPath, archiveData arrowDownPolygon, arrowLeftPolygon, arrowRightPolygon, arrowSmallDownPolygon
+@docs alertPath, archivePath, arrowDownPolygon, arrowLeftPolygon, arrowRightPolygon, arrowSmallDownPolygon
 @docs arrowSmallLeftPolygon, arrowSmallRightPolygon, arrowSmallUpPolygon, arrowUpPolygon
 @docs beakerPath, bellPath, boldPath, bookPath, bookmarkPath, briefcasePath, broadcastPath
 @docs browserPath, bugPath, calendarPath, checkPolygon, checklistPath, chevronDownPolygon
@@ -191,7 +191,7 @@ alertPath =
 -}
 archive : Options -> Html msg
 archive =
-    pathIconWithOptions archivePath "0 0 16 16" "archive"
+    pathIconWithOptions archivePath "0 0 14 16" "archive"
 
 
 {-|
