@@ -1,2 +1,4 @@
 octicons-5.0.1
 elm-stuff
+# editor files
+*.swp

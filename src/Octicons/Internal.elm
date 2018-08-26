@@ -1,4 +1,4 @@
-module Octicons.Internal exposing (..)
+module Octicons.Internal exposing (Options, iconSVG)
 
 import Html
 import Svg
@@ -24,36 +24,35 @@ iconSVG viewBox name options attributes children =
                 Nothing ->
                     []
 
-                Just style ->
-                    [ style ]
+                Just s ->
+                    [ s ]
 
         margin =
             case options.margin of
                 Nothing ->
                     []
 
-                Just margin ->
-                    [ "margin: " ++ margin ]
+                Just m ->
+                    [ "margin: " ++ m ]
 
         styles =
-            case (List.concat [ style, margin ]) of
+            case List.concat [ style, margin ] of
                 [] ->
                     []
 
                 lst ->
                     [ Svg.Attributes.style (String.join ";" lst) ]
     in
-        Svg.svg
-            (List.concat
-                [ [ Svg.Attributes.version "1.1"
-                  , Svg.Attributes.class (Maybe.withDefault ("octicon " ++ name) options.class)
-                  , Svg.Attributes.width <| toString options.width
-                  , Svg.Attributes.height <| toString options.height
-                  , Svg.Attributes.viewBox viewBox
-                  ]
-                , attributes
-                , styles
-                ]
-            )
-            children
-
+    Svg.svg
+        (List.concat
+            [ [ Svg.Attributes.version "1.1"
+              , Svg.Attributes.class (Maybe.withDefault ("octicon " ++ name) options.class)
+              , Svg.Attributes.width <| String.fromInt options.width
+              , Svg.Attributes.height <| String.fromInt options.height
+              , Svg.Attributes.viewBox viewBox
+              ]
+            , attributes
+            , styles
+            ]
+        )
+        children
