@@ -1,12 +1,14 @@
 module Main exposing (main)
 
-import Html exposing (div, span, node, text, ul, li, a)
+import Html exposing (a, div, li, node, span, text, ul)
 import Html.Attributes exposing (class)
 import Octicons exposing (defaultOptions)
 
+
 main =
     div [ class "wrapper" ]
-        [ node "style" []
+        [ node "style"
+            []
             [ text """
 .icon-list {
     list-style-type: none;
@@ -51,10 +53,11 @@ body {
     color: #444;
     height: 100%;
 }
-"""         ]
+""" ]
         , ul [ class "icon-list" ]
             [ li [] [ a [] [ Octicons.alert { defaultOptions | width = 32, height = 32 } ] ]
             , li [] [ a [] [ Octicons.archive { defaultOptions | width = 28, height = 32 } ] ]
+            , li [] [ a [] [ Octicons.arrowBoth { defaultOptions | width = 40, height = 32 } ] ]
             , li [] [ a [] [ Octicons.arrowDown { defaultOptions | width = 20, height = 32 } ] ]
             , li [] [ a [] [ Octicons.arrowLeft { defaultOptions | width = 20, height = 32 } ] ]
             , li [] [ a [] [ Octicons.arrowRight { defaultOptions | width = 20, height = 32 } ] ]
@@ -106,6 +109,7 @@ body {
             , li [] [ a [] [ Octicons.ellipses { defaultOptions | width = 24, height = 32 } ] ]
             , li [] [ a [] [ Octicons.ellipsis { defaultOptions | width = 24, height = 32 } ] ]
             , li [] [ a [] [ Octicons.eye { defaultOptions | width = 32, height = 32 } ] ]
+            , li [] [ a [] [ Octicons.eyeClosed { defaultOptions | width = 32, height = 28 } ] ]
             , li [] [ a [] [ Octicons.fileBinary { defaultOptions | width = 24, height = 32 } ] ]
             , li [] [ a [] [ Octicons.fileCode { defaultOptions | width = 24, height = 32 } ] ]
             , li [] [ a [] [ Octicons.fileDirectory { defaultOptions | width = 28, height = 32 } ] ]
@@ -119,6 +123,8 @@ body {
             , li [] [ a [] [ Octicons.file { defaultOptions | width = 24, height = 32 } ] ]
             , li [] [ a [] [ Octicons.flame { defaultOptions | width = 24, height = 32 } ] ]
             , li [] [ a [] [ Octicons.fold { defaultOptions | width = 28, height = 32 } ] ]
+            , li [] [ a [] [ Octicons.foldDown { defaultOptions | width = 28, height = 32 } ] ]
+            , li [] [ a [] [ Octicons.foldUp { defaultOptions | width = 28, height = 32 } ] ]
             , li [] [ a [] [ Octicons.gear { defaultOptions | width = 28, height = 32 } ] ]
             , li [] [ a [] [ Octicons.gift { defaultOptions | width = 28, height = 32 } ] ]
             , li [] [ a [] [ Octicons.gistSecret { defaultOptions | width = 28, height = 32 } ] ]
@@ -143,6 +149,8 @@ body {
             , li [] [ a [] [ Octicons.issueReopened { defaultOptions | width = 28, height = 32 } ] ]
             , li [] [ a [] [ Octicons.italic { defaultOptions | width = 12, height = 32 } ] ]
             , li [] [ a [] [ Octicons.jersey { defaultOptions | width = 28, height = 32 } ] ]
+            , li [] [ a [] [ Octicons.kebabHorizontal { defaultOptions | width = 26, height = 32 } ] ]
+            , li [] [ a [] [ Octicons.kebabVertical { defaultOptions | width = 6, height = 32 } ] ]
             , li [] [ a [] [ Octicons.key { defaultOptions | width = 28, height = 32 } ] ]
             , li [] [ a [] [ Octicons.keyboard { defaultOptions | width = 32, height = 32 } ] ]
             , li [] [ a [] [ Octicons.law { defaultOptions | width = 28, height = 32 } ] ]
@@ -160,6 +168,7 @@ body {
             , li [] [ a [] [ Octicons.mail { defaultOptions | width = 28, height = 32 } ] ]
             , li [] [ a [] [ Octicons.markGithub { defaultOptions | width = 32, height = 32 } ] ]
             , li [] [ a [] [ Octicons.markTor { defaultOptions | width = 32, height = 32 } ] ]
+            , li [] [ a [] [ Octicons.markTwitter { defaultOptions | width = 64, height = 64 } ] ]
             , li [] [ a [] [ Octicons.markdown { defaultOptions | width = 32, height = 32 } ] ]
             , li [] [ a [] [ Octicons.megaphone { defaultOptions | width = 32, height = 32 } ] ]
             , li [] [ a [] [ Octicons.mention { defaultOptions | width = 28, height = 32 } ] ]

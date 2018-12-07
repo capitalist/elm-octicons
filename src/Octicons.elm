@@ -1,6 +1,6 @@
 module Octicons exposing
     ( size, style, width, height, fillRule, margin, color, class
-    , alert, archive, arrowDown, arrowLeft, arrowRight, arrowSmallDown
+    , alert, archive, arrowBoth, arrowDown, arrowLeft, arrowRight, arrowSmallDown
     , arrowSmallLeft, arrowSmallRight
     , arrowSmallUp, arrowUp, beaker, bell, bold
     , book, bookmark, briefcase, broadcast, browser, bug, calendar
@@ -9,14 +9,14 @@ module Octicons exposing
     , cloudDownload, cloudUpload, code, comment, commentDiscussion
     , creditCard, dash, dashboard, database, desktopDownload, deviceCamera
     , deviceCameraVideo, deviceDesktop, deviceMobile
-    , diff, diffAdded, diffIgnored, diffModified, diffRemoved
-    , ellipses, ellipsis, eye, file
+    , diff, diffAdded, diffIgnored, diffModified
+    , diffRemoved, diffRenamed, ellipses, ellipsis, eye, eyeClosed, file
     , fileBinary, fileCode, fileDirectory, fileMedia, filePdf
     , fileSubmodule, fileSymlinkDirectory, fileSymlinkFile, fileText, fileZip
-    , flame, fold, gear, gift, gist, gistSecret, gitBranch, gitCommit
+    , flame, fold, foldDown, foldUp, gear, gift, gist, gistSecret, gitBranch, gitCommit
     , gitCompare, gitMerge, gitPullRequest, globe, grabber, graph, heart
     , history, home, horizontalRule, hubot, inbox, info, issueClosed, issueOpened
-    , issueReopened, italic, jersey, key, keyboard, law, lightBulb
+    , issueReopened, italic, jersey, kebabHorizontal, kebabVertical, key, keyboard, law, lightBulb
     , link, linkExternal, listOrdered, listUnordered, location, lock
     , logoGist, logoGithub, mail, mailRead, mailReply, markGithub, markTor, markTwitter
     , markdown, megaphone, mention, milestone, mirror, mortarBoard
@@ -32,7 +32,7 @@ module Octicons exposing
     , unfold, unmute, unverified, verified, versions, watch, x
     , zap
     , pathIconWithOptions, polygonIconWithOptions, Options, defaultOptions
-    , alertPath, archivePath, arrowDownPolygon, arrowLeftPolygon, arrowRightPolygon, arrowSmallDownPolygon
+    , alertPath, archivePath, arrowBothPath, arrowDownPolygon, arrowLeftPolygon, arrowRightPolygon, arrowSmallDownPolygon
     , arrowSmallLeftPolygon, arrowSmallRightPolygon, arrowSmallUpPolygon, arrowUpPolygon
     , beakerPath, bellPath, boldPath, bookPath, bookmarkPath, briefcasePath, broadcastPath
     , browserPath, bugPath, calendarPath, checkPolygon, checklistPath, chevronDownPolygon
@@ -41,15 +41,15 @@ module Octicons exposing
     , commentDiscussionPath, commentPath, creditCardPath, dashPolygon, dashboardPath
     , databasePath, desktopDownloadPath, deviceCameraPath, deviceCameraVideoPath
     , deviceDesktopPath, deviceMobilePath, diffAddedPath, diffIgnoredPath
-    , diffModifiedPath, diffPath, diffRemovedPath, diffRenamed, diffRenamedPath
-    , ellipsesPath, ellipsisPath, eyePath, fileBinaryPath, fileCodePath
+    , diffModifiedPath, diffPath, diffRemovedPath, diffRenamedPath
+    , ellipsesPath, ellipsisPath, eyePath, eyeClosedPath, fileBinaryPath, fileCodePath
     , fileDirectoryPath, fileMediaPath, filePath, filePdfPath, fileSubmodulePath
     , fileSymlinkDirectoryPath, fileSymlinkFilePath, fileTextPath, fileZipPath, flamePath
-    , foldPath, gearPath, giftPath, gistPath, gistSecretPath, gitBranchPath, gitCommitPath
+    , foldPath, foldDownPath, foldUpPath, gearPath, giftPath, gistPath, gistSecretPath, gitBranchPath, gitCommitPath
     , gitComparePath, gitMergePath, gitPullRequestPath, globePath, grabberPath, graphPath
     , heartPath, historyPath, homePath, horizontalRulePath, hubotPath, inboxPath, infoPath
-    , issueClosedPath, issueOpenedPath, issueReopenedPath, italicPath, jerseyPath, keyPath
-    , keyboardPath, lawPath, lightBulbPath, linkExternalPath, linkPath, listOrderedPath
+    , issueClosedPath, issueOpenedPath, issueReopenedPath, italicPath, jerseyPath, kebabHorizontalPath, kebabVerticalPath
+    , keyPath, keyboardPath, lawPath, lightBulbPath, linkExternalPath, linkPath, listOrderedPath
     , listUnorderedPath, locationPath, lockPath, logoGistPath, logoGithubPath, mailPath
     , mailReadPath, mailReplyPath, markGithubPath, markTorPath, markTwitterPath, markdownPath, megaphonePath, mentionPath
     , milestonePath, mirrorPath, mortarBoardPath, mutePath, noNewlinePath, notePath
@@ -69,8 +69,6 @@ module Octicons exposing
 {-|
 
 
-
-
 # Configuration
 
 @docs size, style, width, height, fillRule, margin, color, class
@@ -78,7 +76,7 @@ module Octicons exposing
 
 # Icons Helpers
 
-@docs alert, archive, arrowDown, arrowLeft, arrowRight, arrowSmallDown
+@docs alert, archive, arrowBoth, arrowDown, arrowLeft, arrowRight, arrowSmallDown
 @docs arrowSmallLeft, arrowSmallRight
 @docs arrowSmallUp, arrowUp, beaker, bell, bold
 @docs book, bookmark, briefcase, broadcast, browser, bug, calendar
@@ -88,13 +86,13 @@ module Octicons exposing
 @docs creditCard, dash, dashboard, database, desktopDownload, deviceCamera
 @docs deviceCameraVideo, deviceDesktop, deviceMobile
 @docs diff, diffAdded, diffIgnored, diffModified
-@docs diffRemoved diffRenamed, ellipses, ellipsis, eye, file
+@docs diffRemoved, diffRenamed, ellipses, ellipsis, eye, eyeClosed, file
 @docs fileBinary, fileCode, fileDirectory, fileMedia, filePdf
 @docs fileSubmodule, fileSymlinkDirectory, fileSymlinkFile, fileText, fileZip
-@docs flame, fold, gear, gift, gist, gistSecret, gitBranch, gitCommit
+@docs flame, fold, foldDown, foldUp, gear, gift, gist, gistSecret, gitBranch, gitCommit
 @docs gitCompare, gitMerge, gitPullRequest, globe, grabber, graph, heart
 @docs history, home, horizontalRule, hubot, inbox, info, issueClosed, issueOpened
-@docs issueReopened, italic, jersey, key, keyboard, law, lightBulb
+@docs issueReopened, italic, jersey, kebabHorizontal, kebabVertical, key, keyboard, law, lightBulb
 @docs link, linkExternal, listOrdered, listUnordered, location, lock
 @docs logoGist, logoGithub, mail, mailRead, mailReply, markGithub, markTor, markTwitter
 @docs markdown, megaphone, mention, milestone, mirror, mortarBoard
@@ -118,7 +116,7 @@ module Octicons exposing
 
 # Svg Data
 
-@docs alertPath, archivePath, arrowDownPolygon, arrowLeftPolygon, arrowRightPolygon, arrowSmallDownPolygon
+@docs alertPath, archivePath, arrowBothPath, arrowDownPolygon, arrowLeftPolygon, arrowRightPolygon, arrowSmallDownPolygon
 @docs arrowSmallLeftPolygon, arrowSmallRightPolygon, arrowSmallUpPolygon, arrowUpPolygon
 @docs beakerPath, bellPath, boldPath, bookPath, bookmarkPath, briefcasePath, broadcastPath
 @docs browserPath, bugPath, calendarPath, checkPolygon, checklistPath, chevronDownPolygon
@@ -127,15 +125,15 @@ module Octicons exposing
 @docs commentDiscussionPath, commentPath, creditCardPath, dashPolygon, dashboardPath
 @docs databasePath, desktopDownloadPath, deviceCameraPath, deviceCameraVideoPath
 @docs deviceDesktopPath, deviceMobilePath, diffAddedPath, diffIgnoredPath
-@docs diffModifiedPath, diffPath, diffRemovedPath, diffRenamed, diffRenamedPath, ellipses
-@docs ellipsesPath, ellipsis, ellipsisPath, eye, eyePath, file, fileBinaryPath, fileCodePath
+@docs diffModifiedPath, diffPath, diffRemovedPath, diffRenamedPath
+@docs ellipsesPath, ellipsisPath, eyePath, eyeClosedPath, fileBinaryPath, fileCodePath
 @docs fileDirectoryPath, fileMediaPath, filePath, filePdfPath, fileSubmodulePath
 @docs fileSymlinkDirectoryPath, fileSymlinkFilePath, fileTextPath, fileZipPath, flamePath
-@docs foldPath, gearPath, giftPath, gistPath, gistSecretPath, gitBranchPath, gitCommitPath
+@docs foldPath, foldDownPath, foldUpPath, gearPath, giftPath, gistPath, gistSecretPath, gitBranchPath, gitCommitPath
 @docs gitComparePath, gitMergePath, gitPullRequestPath, globePath, grabberPath, graphPath
 @docs heartPath, historyPath, homePath, horizontalRulePath, hubotPath, inboxPath, infoPath
-@docs issueClosedPath, issueOpenedPath, issueReopenedPath, italicPath, jerseyPath, keyPath
-@docs keyboardPath, lawPath, lightBulbPath, linkExternalPath, linkPath, listOrderedPath
+@docs issueClosedPath, issueOpenedPath, issueReopenedPath, italicPath, jerseyPath, kebabHorizontalPath, kebabVerticalPath
+@docs keyPath, keyboardPath, lawPath, lightBulbPath, linkExternalPath, linkPath, listOrderedPath
 @docs listUnorderedPath, locationPath, lockPath, logoGistPath, logoGithubPath, mailPath
 @docs mailReadPath, mailReplyPath, markGithubPath, markTorPath, markTwitterPath, markdownPath, megaphonePath, mentionPath
 @docs milestonePath, mirrorPath, mortarBoardPath, mutePath, noNewlinePath, notePath
@@ -202,7 +200,8 @@ defaultOptions =
     { color = "black", class = Nothing, width = 16, height = 16, fillRule = "evenodd", margin = Nothing, style = Nothing }
 
 
-{-| Set the width and height to the same value. -}
+{-| Set the width and height to the same value.
+-}
 size : Int -> Options -> Options
 size value options =
     { options | width = value, height = value }
@@ -272,6 +271,18 @@ archive =
 archivePath : String
 archivePath =
     "M13 2H1v2h12V2zM0 4a1 1 0 0 0 1 1v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v2zm2 1h10v9H2V5zm2 3h6V7H4v1z"
+
+
+{-| -}
+arrowBoth : Options -> Html msg
+arrowBoth =
+    pathIconWithOptions arrowBothPath "0 0 20 16" "arrowBoth"
+
+
+{-| -}
+arrowBothPath : String
+arrowBothPath =
+    "M0 8L6 3V6H10H14V3L20 8L14 13V10H10H6V13L0 8Z"
 
 
 {-| -}
@@ -887,6 +898,18 @@ eyePath =
 
 
 {-| -}
+eyeClosed : Options -> Html msg
+eyeClosed =
+    pathIconWithOptions eyeClosedPath "0 0 16 14" "eyeClosed"
+
+
+{-| -}
+eyeClosedPath : String
+eyeClosedPath =
+    "M14.8222 0.853553C15.0175 0.658291 15.0175 0.341709 14.8222 0.146447C14.627 -0.0488155 14.3104 -0.0488155 14.1151 0.146447L12.005 2.25653C10.8901 1.482 9.56509 0.925049 8.06 0.925049C3 0.925049 0 6.92505 0 6.92505C0 6.92505 1.16157 9.24818 3.25823 11.0033L1.19366 13.0679C0.998395 13.2632 0.998395 13.5798 1.19366 13.775C1.38892 13.9703 1.7055 13.9703 1.90076 13.775L14.8222 0.853553ZM4.85879 9.40277L6.29159 7.96998C6.10643 7.66645 6 7.3089 6 6.92505C6 5.81505 6.89 4.92505 8 4.92505C8.38385 4.92505 8.7414 5.03148 9.04493 5.21664L10.4777 3.78384C9.79783 3.24654 8.93821 2.92505 8 2.92505C5.8 2.92505 4 4.72505 4 6.92505C4 7.86326 4.32149 8.72288 4.85879 9.40277ZM11.8644 5.88906L13.8567 3.8968C15.2406 5.40616 16 6.92505 16 6.92505C16 6.92505 13 12.925 8.06 12.925C7.09599 12.925 6.20675 12.7073 5.39878 12.3547L6.96401 10.7895C7.29473 10.8779 7.64207 10.925 8 10.925C10.22 10.925 12 9.14505 12 6.92505C12 6.56712 11.9529 6.21978 11.8644 5.88906ZM9.33847 8.41501L9.48996 8.26352C9.44222 8.31669 9.39164 8.36726 9.33847 8.41501Z"
+
+
+{-| -}
 fileBinary : Options -> Html msg
 fileBinary =
     pathIconWithOptions fileBinaryPath "0 0 12 16" "fileBinary"
@@ -1040,6 +1063,30 @@ fold =
 foldPath : String
 foldPath =
     "M7,9 L10,12 L8,12 L8,15 L6,15 L6,12 L4,12 L7,9 L7,9 Z M10,3 L8,3 L8,0 L6,0 L6,3 L4,3 L7,6 L10,3 L10,3 Z M14,5 C14,4.45 13.55,4 13,4 L10.5,4 L9.5,5 L12.5,5 L10.5,7 L3.5,7 L1.5,5 L4.5,5 L3.5,4 L1,4 C0.45,4 0,4.45 0,5 L2.5,7.5 L0,10 C0,10.55 0.45,11 1,11 L3.5,11 L4.5,10 L1.5,10 L3.5,8 L10.5,8 L12.5,10 L9.5,10 L10.5,11 L13,11 C13.55,11 14,10.55 14,10 L11.5,7.5 L14,5 L14,5 Z"
+
+
+{-| -}
+foldDown : Options -> Html msg
+foldDown =
+    pathIconWithOptions foldDownPath "0 0 14 16" "foldDown"
+
+
+{-| -}
+foldDownPath : String
+foldDownPath =
+    "M4 11L7 14L10 11L8 11L8 5L6 5L6 11L4 11ZM1.1012e-06 11C1.07415e-06 11.55 0.450001 12 1 12L3.5 12L2.5 11L1.5 11L3.5 9L5 9L5 8L3.5 8L1.5 6L5 6L5 5L1 5C0.450001 5 1.37412e-06 5.45 1.34708e-06 6L2.5 8.5L1.1012e-06 11ZM10.5 9L9 9L9 8L10.5 8L12.5 6L9 6L9 5L13 5C13.55 5 14 5.45 14 6L11.5 8.5L14 11C14 11.55 13.55 12 13 12L10.5 12L11.5 11L12.5 11L10.5 9Z"
+
+
+{-| -}
+foldUp : Options -> Html msg
+foldUp =
+    pathIconWithOptions foldUpPath "0 0 14 16" "foldUp"
+
+
+{-| -}
+foldUpPath : String
+foldUpPath =
+    "M10 6L7 3L4 6H6V12H8V6H10ZM14 6C14 5.45 13.55 5 13 5H10.5L11.5 6H12.5L10.5 8H9V9H10.5L12.5 11H9V12H13C13.55 12 14 11.55 14 11L11.5 8.5L14 6ZM3.5 8H5V9H3.5L1.5 11H5V12H1C0.45 12 0 11.55 0 11L2.5 8.5L0 6C0 5.45 0.45 5 1 5H3.5L2.5 6H1.5L3.5 8Z"
 
 
 {-| -}
@@ -1328,6 +1375,30 @@ jersey =
 jerseyPath : String
 jerseyPath =
     "M4.5,6 L4,6.5 L4,11.5 L4.5,12 L6.5,12 L7,11.5 L7,6.5 L6.5,6 L4.5,6 L4.5,6 Z M6,11 L5,11 L5,7 L6,7 L6,11 L6,11 Z M12.27,3.75 C12.05,2.37 11.96,1.12 12,0 L9.02,0 C9.02,0.27 8.89,0.48 8.63,0.69 C8.38,0.89 8,0.99 7.5,0.99 C7,0.99 6.62,0.9 6.37,0.69 C6.14,0.49 6.01,0.27 6.01,0 L3,0 C3.05,1.13 2.97,2.38 2.75,3.75 C2.55,5.13 1.95,5.88 1,6 L1,15 C1.02,15.27 1.11,15.48 1.31,15.69 C1.51,15.9 1.73,15.99 2,16 L13,16 C13.27,15.98 13.48,15.89 13.69,15.69 C13.9,15.49 13.99,15.27 14,15 L14,6 C13.05,5.87 12.47,5.12 12.25,3.75 L12.27,3.75 Z M13,15 L2,15 L2,7 C2.89,6.5 3.48,5.75 3.72,4.75 C3.96,3.75 4.03,2.5 4,1 L5,1 C4.98,1.78 5.16,2.47 5.52,3.06 C5.88,3.64 6.54,3.95 7.52,4 C8.5,3.98 9.16,3.67 9.52,3.06 C9.88,2.47 10.02,1.78 10,1 L11,1 C11.02,2.42 11.13,3.55 11.33,4.38 C11.53,5.19 12.02,6.38 13,7.01 L13,15.01 L13,15 Z M8.5,6 L8,6.5 L8,11.5 L8.5,12 L10.5,12 L11,11.5 L11,6.5 L10.5,6 L8.5,6 L8.5,6 Z M10,11 L9,11 L9,7 L10,7 L10,11 L10,11 Z"
+
+
+{-| -}
+kebabHorizontal : Options -> Html msg
+kebabHorizontal =
+    pathIconWithOptions kebabHorizontalPath "0 0 13 16" "kebabHorizontal"
+
+
+{-| -}
+kebabHorizontalPath : String
+kebabHorizontalPath =
+    "M1.5 9C2.32843 9 3 8.32843 3 7.5C3 6.67157 2.32843 6 1.5 6C0.67157 6 0 6.67157 0 7.5C0 8.32843 0.67157 9 1.5 9ZM6.5 9C7.32843 9 8 8.32843 8 7.5C8 6.67157 7.32843 6 6.5 6C5.67157 6 5 6.67157 5 7.5C5 8.32843 5.67157 9 6.5 9ZM13 7.5C13 8.32843 12.3284 9 11.5 9C10.6716 9 10 8.32843 10 7.5C10 6.67157 10.6716 6 11.5 6C12.3284 6 13 6.67157 13 7.5Z"
+
+
+{-| -}
+kebabVertical : Options -> Html msg
+kebabVertical =
+    pathIconWithOptions kebabVerticalPath "0 0 3 16" "kebabVertical"
+
+
+{-| -}
+kebabVerticalPath : String
+kebabVerticalPath =
+    "M0 2.5C0 3.32843 0.67157 4 1.5 4C2.32843 4 3 3.32843 3 2.5C3 1.67157 2.32843 1 1.5 1C0.67157 1 0 1.67157 0 2.5ZM0 7.5C0 8.32843 0.67157 9 1.5 9C2.32843 9 3 8.32843 3 7.5C3 6.67157 2.32843 6 1.5 6C0.67157 6 0 6.67157 0 7.5ZM1.5 14C0.67157 14 0 13.3284 0 12.5C0 11.6716 0.67157 11 1.5 11C2.32843 11 3 11.6716 3 12.5C3 13.3284 2.32843 14 1.5 14Z"
 
 
 {-| -}
